@@ -1,12 +1,14 @@
 import { setConfig } from './config.js';
 import behavior from './behavior/index.js';
 import error from './error/index.js';
+import performance from './performance/index.js';
 
 // 初始化
 function init(options) {
   setConfig(options);
   behavior();
   error();
+  performance();
 }
 
 export default {
