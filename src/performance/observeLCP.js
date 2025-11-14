@@ -1,7 +1,7 @@
 import { batchReport } from '../report.js';
 
 // LCP监控
-export default function observerLCP() {
+export default function observeLCP() {
   const entryHandler = (list) => {
     if (observer) {
       observer.disconnect();
@@ -12,6 +12,7 @@ export default function observerLCP() {
         ...json,
         type: 'performance',
         subType: entry.name,
+        startTime: Date.now(),
         pageUrl: location.href
       });
     }
