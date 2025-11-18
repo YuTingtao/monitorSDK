@@ -1,8 +1,8 @@
 const config = {
-  url: 'http://127.0.0.1:4000/api',
+  api: 'http://127.0.0.1:4000/api',
   appId: 'appId',
   isImgUpload: false,
-  batchSize: 5,
+  batchSize: 5
 };
 
 function setConfig(options) {

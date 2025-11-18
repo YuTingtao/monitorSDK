@@ -11,8 +11,7 @@ export default function observeLCP() {
       batchReport({
         ...json,
         type: 'performance',
-        subType: entry.name,
-        startTime: Date.now(),
+        subType: entry.entryType,
         pageUrl: location.href
       });
     }

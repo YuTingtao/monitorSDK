@@ -11,7 +11,6 @@ export default function observeFCP() {
           ...json,
           type: 'performance',
           subType: entry.name,
-          startTime: Date.now(),
           pageUrl: location.href
         });
       }

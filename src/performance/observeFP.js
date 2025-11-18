@@ -10,7 +10,6 @@ export default function observeFP() {
           ...json,
           type: 'performance',
           subType: entry.name,
-          startTime: Date.now(),
           pageUrl: location.href
         });
       }
