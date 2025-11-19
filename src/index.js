@@ -2,6 +2,7 @@ import { setConfig } from './config.js';
 import performance from './performance/index.js';
 import behavior from './behavior/index.js';
 import error from './error/index.js';
+import { batchReport, report } from './report.js';
 
 // 初始化
 function init(options) {
@@ -12,15 +13,8 @@ function init(options) {
 }
 
 export default {
-  init
+  init,
+  setConfig,
+  batchReport,
+  report
 };
-
-/*****************
-// 使用方法
-monitorSDK.init({
-  url: 'http://127.0.0.1:4000/api/report',
-  appId: 'appId',
-  isImgUpload: false,
-  batchSize: 5
-})
- *****************/

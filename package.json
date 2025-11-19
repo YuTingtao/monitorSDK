@@ -1,15 +1,17 @@
 {
   "name": "monitor-sdk",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "前端监控SDK",
+  "main": "dist/monitorSDK.min.js",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
     "prepare": "husky",
     "lint-staged": "lint-staged"
   },
-  "keywords": [],
+  "keywords": [
+    "前端监控SDK"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.11.1",

@@ -3,13 +3,13 @@ import { generateUUID } from './utils.js';
 import { addCache, getCaches, clearCaches } from './cache.js';
 
 // 图片上报
-function imgReport(data) {
+export function imgReport(data) {
   const img = new Image();
   img.src = `${config.url}?data=${encodeURIComponent(data)}`;
 }
 
 // sendBeacon或ajax上报
-function beaconOrAjaxReport(data) {
+export function beaconOrAjaxReport(data) {
   if (navigator.sendBeacon) {
     navigator.sendBeacon(config.url, data);
   } else {
@@ -27,6 +27,7 @@ export function report(data) {
   }
   const reportData = JSON.stringify({
     uuid: generateUUID(),
+    userId: config.userId,
     data
   });
 

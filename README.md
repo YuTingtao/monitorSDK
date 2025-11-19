@@ -2,12 +2,28 @@
 
 ```
 // 使用方法
-monitorSDK.init({
+MonitorSDK.init({
   api: 'http://127.0.0.1:4000/api/report', // 上报接口
   appId: 'appId', // 应用ID
   isImgUpload: false, // 是否上传图片
   batchSize: 5, // 批量上报数量
+  useId: 'userId',
 })
+
+// 设置/更新配置
+MonitorSDK.setConfig({
+  api: 'http://127.0.0.1:4000/api/report',
+  appId: 'appId',
+  isImgUpload: false,
+  batchSize: 5,
+  useId: 'userId',
+})
+
+// 手动批量上传数据，会放在任务队列中，等待下一次上报
+MonitorSDK.batchReport({})
+
+// 手动上报数据，立即上报单条数据
+MonitorSDK.report({})
 ```
 
 ## 性能指标

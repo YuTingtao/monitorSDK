@@ -2,7 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import { babel } from '@rollup/plugin-babel';
-import del from 'rollup-plugin-delete';
+import deletePlugin from 'rollup-plugin-delete';
 import progress from 'rollup-plugin-progress';
 
 export default {
@@ -14,19 +14,20 @@ export default {
       name: 'MonitorSDK'
     },
     {
-      file: './dist/monitorSDK.esm.js',
-      format: 'esm',
-      name: 'MonitorSDK'
+      file: './dist/monitorSDK.min.js',
+      format: 'umd',
+      name: 'MonitorSDK',
+      plugins: [terser()]
     }
   ],
   plugins: [
-    del({ targets: ['dist/*'] }),
+    deletePlugin({ targets: ['dist/*'] }),
     progress(),
     resolve(),
     commonjs(),
-    babel({ babelHelpers: 'bundled' }),
-    terser({
-      compress: { drop_console: true, dead_code: true }
+    babel({
+      babelHelpers: 'bundled',
+      exclude: 'node_modules/**'
     })
   ]
 };
